@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: {{ .Values.podKind }}
+metadata:
+  name: {{ .Values.podName }}
+  namespace: {{ .Values.namespaceName }}
+  labels:
+    name: {{ .Values.labels.name }}
+spec:
+  containers:
+    - name: {{ .Values.containerName }}
+      image: {{ .Values.image }}
+      volumeMounts:
+        - mountPath: {{ .Values.nginxVolume.path }}
+          name: {{ .Values.nginxVolume.pathName }}
+  volumes:
+    - name: {{ .Values.nginxVolume.pathName }}
+      configMap:
+        name: {{ .Values.nginxVolume.configMapName }}
+  restartPolicy: Never

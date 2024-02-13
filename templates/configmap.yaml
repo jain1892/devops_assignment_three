@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: {{ .Values.configMapKind }}
+metadata:
+  name: {{ .Values.configMapName }}
+  namespace: {{ .Values.namespaceName }}
+data:
+  {{- template "default.configmap.data"}}

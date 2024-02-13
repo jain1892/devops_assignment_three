@@ -1,0 +1,14 @@
+type: Namespace
+namespaceName: app-namespace
+labels:
+  name: demo-app
+podKind: Pod
+configMapKind: ConfigMap
+podName: nginx-helmpod
+containerName: nginx-container
+image: "nginx:1.16.0"
+configMapName: nginx-configmap
+nginxVolume:
+  path: /usr/share/nginx/html
+  pathName: nginx-path
+  configMapName: nginx-configmap
